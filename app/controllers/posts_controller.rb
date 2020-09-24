@@ -2,14 +2,15 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index,:show]
   before_action :is_admin!, except: [:index,:show]
+
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.order("created_at DESC").paginate(page: params[:page])
+
   end
 
   # GET /posts/1
-  # GET /posts/1.json
   def show
     views = @post.views + 1
     @post.update(views: views)
@@ -69,7 +70,7 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

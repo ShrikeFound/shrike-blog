@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :posts, dependent: :destroy
+
   # alfonso@mail.com -> 
   def user_name
     return email.split("@")[0].capitalize
