@@ -1,1 +1,28 @@
+$theme-colors: (
+  "primary": #528078,
+  //main
+  "secondary": #eed75a,
+  "success": #fec100,
+  "info": #63e792,
+  //light accent
+  "warning": #ffe869,
+  "danger": #703b3b,
+  //dark accent
+  "light": #fdfbf7,
+  //light shade
+  "dark": #555555,
+  //dark
+  "white": #fff,
+  "gray": #6c757d,
+  "gray-dark": #343a40,
+);
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+h1 {
+  font-family: "Prata", serif;
+}
+
 @import "~bootstrap/scss/bootstrap";
