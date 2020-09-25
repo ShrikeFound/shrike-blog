@@ -4,7 +4,7 @@
 
     <div class="row" >      
       <div class="card mb-3 custom-card" style="width: 100%;">
-        <% post.thumbnail.is_attached? %>
+        <% if post.thumbnail.is_attached? %>
         <img 
           class ="card-img-top"
           src="<%= url_for post.optimized_image(post.thumbnail,586,180)%>%"
