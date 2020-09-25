@@ -1,17 +1,19 @@
 
-<%= form_with model:@post do |f| %>
+<%= form_with model:@post, class: "user-form" do |f| %>
   <div class="form-inputs">
-    <%= f.label :title, class:"form-control strong"%>
-    <%= f.text_field :title %>
+    <%= f.label :title, class:"strong"%><br/>
+    <%= f.text_field :title, class: "input" %><br/>
+    <%= f.label :description, class:"description-input"%><br/>
+    <%= f.text_field :description, class: "input"%><br/>
+    <%= f.label :thumbnail, class:""%><br/>
+    <%= f.file_field :thumbnail %><br/>
+    <%= f.label :banner, class:""%><br/>
+    <%= f.file_field :banner%><br/>
+    <%= f.rich_text_area :body, class: "text-area input"%>
 
-    <%= f.label :thumbnail, class:"form-control"%>
-    <%= f.file_field :thumbnail %>
-    <%= f.label :banner, class:"form-control"%>
-    <%= f.file_field :banner%>
-    <%= f.rich_text_area :body%>
-  </div>
-
-  <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
+
+
 <% end %>

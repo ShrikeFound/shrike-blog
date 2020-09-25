@@ -3,7 +3,7 @@
   <% @posts.each do |post|%>
 
     <div class="row" >      
-      <div class="card mb-3" style="width: 100%;">
+      <div class="card mb-3 custom-card" style="width: 100%;">
         <img 
           class ="card-img-top"
           src="<%= url_for post.optimized_image(post.thumbnail,586,180)%>%"
@@ -16,8 +16,10 @@
           </p>
           <p class="card-text">
             <small class="text-muted">
-              <%= post.updated_at.strftime("%A, %B %e, %Y")%> by <%= post.user.user_name %> |
-              <%= pluralize(post.views, "View")%>
+              <%= post.updated_at.strftime("%A, %B %e, %Y")%> by <%= post.user.user_name %>
+              <% if user_signed_in? && current_user.admin %>
+              |<%= pluralize(post.views, "View")%>
+              <% end %>
             </small>
           </p>
         </div>

@@ -9,7 +9,12 @@
         <%= link_to @post.title, root_path%>
       </h1>
       <p class="lead">
-        <%= @post.updated_at.strftime("%A, %m/%e/%y")%> by <%= @post.user.user_name%> | <%= pluralize(@post.views, "View")%>
+        <%= @post.updated_at.strftime("%A, %m/%e/%y")%> by <%= @post.user.user_name%> 
+        <% if user_signed_in? && current_user.admin %>
+          |<%= pluralize(@post.views, "View")%>
+          (<%= link_to "Edit", edit_post_path(@post) %>)
+          <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
       </p>
       <hr class="my-h">
       <div class="post_body">

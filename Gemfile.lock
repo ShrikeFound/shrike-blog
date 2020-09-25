@@ -86,6 +86,8 @@ GEM
       i18n (>= 1.6, < 2)
     ffi (1.13.1)
     ffi (1.13.1-x64-mingw32)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     friendly_id (5.4.0)
       activerecord (>= 4.0.0)
     globalid (0.4.2)
@@ -230,6 +232,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   faker
+  figaro
   friendly_id
   image_processing (~> 1.2)
   jbuilder (~> 2.7)

@@ -1,7 +1,8 @@
 
 #create me
 User.destroy_all
-User.create!(email:"alfonso@mail.com",password:"password",password_confirmation:"password",admin: true)
+User.create!(email:"alphaandsew@gmail.com",password: ENV["fonzo_password"],password_confirmation: ENV["fonzo_password"],admin: true)
+User.create!(email:"jonathanpulido15@gmail.com",password: ENV["jon_password"],password_confirmation: ENV["jon_password"],admin: true)
 
 
 # #create fake posts
