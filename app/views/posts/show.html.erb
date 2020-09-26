@@ -8,6 +8,7 @@
       <h1 class="display-4" >
         <%= link_to @post.title, root_path%>
       </h1>
+
       <p class="lead">
         <%= @post.updated_at.strftime("%A, %m/%e/%y")%> by <%= @post.user.user_name%> 
         <% if user_signed_in? && current_user.admin %>
@@ -16,6 +17,11 @@
           <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
       </p>
+      <small class="text-muted">
+        <% @post.tags.each do |tag| %>
+          <%= link_to tag.name, tag_path(tag) %>
+        <% end %>
+      </small>
       <hr class="my-h">
       <div class="post_body">
         <%= @post.body%>

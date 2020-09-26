@@ -5,8 +5,16 @@
     <%= f.text_field :title, class: "input" %><br/>
     <%= f.label :description, class:"description-input"%><br/>
     <%= f.text_field :description, class: "input"%><br/>
+    <%= f.label :tag_list%><br/>
+    <%= f.text_field :tag_list%><br/>
+    <% if @post.thumbnail.attached? %>
+      <%= image_tag @post.thumbnail.variant(resize_to_fill: [560,180]).processed %><br/>
+    <% end %>
     <%= f.label :thumbnail, class:""%><br/>
     <%= f.file_field :thumbnail %><br/>
+    <% if @post.banner.attached? %>
+      <%= image_tag @post.banner.variant(resize_to_fill: [560,180]).processed %><br/>
+    <% end %>
     <%= f.label :banner, class:""%><br/>
     <%= f.file_field :banner%><br/>
     <%= f.rich_text_area :body, class: "text-area input"%>

@@ -69,6 +69,10 @@ h1.display-4 {
   font-family: "Prata", serif;
 }
 
+.card-footer {
+  background: none !important;
+}
+
 p.lead {
   font-size: 1.1rem;
 }
@@ -109,6 +113,38 @@ div.trix-content {
 }
 .container:first-of-type {
   padding-top: 3em;
+}
+
+.btn.icon {
+  display: flex;
+  align-items: center;
+}
+
+.icon::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.2em;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  margin-right: 0.3em;
+}
+
+.icon-instagram::before {
+  font-family: "Font Awesome 5 Brands";
+  content: "\f16d";
+}
+
+.icon-itchio::before {
+  font-family: "Font Awesome 5 Brands";
+  content: "\f83a";
+}
+
+.icon-github::before {
+  font-family: "Font Awesome 5 Brands";
+  content: "\f09b";
 }
 
 @import "~bootstrap/scss/bootstrap";
