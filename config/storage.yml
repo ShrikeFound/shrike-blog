@@ -13,7 +13,8 @@ amazon:
   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
   region: us-west-1
   bucket: shrike-blog-images
-# Remember not to checkin your GCS keyfile to a repository
+
+  # Remember not to checkin your GCS keyfile to a repository
 # google:
 #   service: GCS
 #   project: your_project
