@@ -1,9 +1,45 @@
 <div class="container">
-<h1>Articles Tagged with "<%= @tag.name %>"</h1>
+<h1 style="text-align: center;">Articles Tagged with "<%= @tag.name %>"</h1>
 
-<ul>
   <% @tag.posts.each do |post| %>
-    <li><%= link_to post.title, post_path(post) %></li>
+    <div class="row" >      
+      <div class="card mb-3 custom-card" style="width: 560px; margin: 0 auto;">
+        <% if post.thumbnail.attached? %>
+        <img 
+          class ="card-img-top"
+          src="<%= url_for post.thumbnail.variant(resize_to_fill: [560,180]).processed%>%"
+          alt="Blog Post Image Thumbnail"
+        />
+        <% end %>
+
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to post.title, post %></h5>
+          <p class="card-text">
+            <%= post.description%>
+          </p>
+          <p class="card-text">
+            <small class="text-muted">
+              <%= post.updated_at.strftime("%A, %B %e, %Y")%> by <%= post.user.user_name %>
+              <% if user_signed_in? && current_user.admin %>
+              |<%= pluralize(post.views, "View")%>
+              <% end %>
+            </small>
+          </p>
+          
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">
+            Tags:
+            <% post.tags.each do |tag| %>
+              <%= link_to tag.name, tag_path(tag) %>
+            <% end %>
+            </small>
+          </div>
+      </div>
+    </div>
+
   <% end %>
-</ul>
+
+
+
 </div>

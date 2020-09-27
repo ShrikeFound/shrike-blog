@@ -3,7 +3,7 @@
   <% @posts.each do |post|%>
 
     <div class="row" >      
-      <div class="card mb-3 custom-card">
+      <div class="card mb-3 custom-card" style="width: 560; margin: 0 auto;">
         <% if post.thumbnail.attached? %>
         <img 
           class ="card-img-top"
@@ -28,7 +28,7 @@
         </div>
         <div class="card-footer">
             <small class="text-muted">
-            Tags:
+            Categories:
             <% post.tags.each do |tag| %>
               <%= link_to tag.name, tag_path(tag) %>
             <% end %>

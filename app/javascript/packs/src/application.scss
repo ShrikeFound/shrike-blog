@@ -111,6 +111,12 @@ div.custom-card {
 div.trix-content {
   line-height: 1.85;
 }
+
+.form-inputs label {
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+}
+
 .container:first-of-type {
   padding-top: 3em;
 }
@@ -118,6 +124,17 @@ div.trix-content {
 .btn.icon {
   display: flex;
   align-items: center;
+  border: 1px solid var(--primary);
+}
+
+.btn.icon,
+.btn.icon::before {
+  transition: all ease-in-out 200ms;
+}
+
+.btn.icon:hover,
+.btn.icon:hover::before {
+  color: var(--primary);
 }
 
 .icon::before {
@@ -145,6 +162,10 @@ div.trix-content {
 .icon-github::before {
   font-family: "Font Awesome 5 Brands";
   content: "\f09b";
+}
+
+.tag-post-list {
+  list-style: none;
 }
 
 @import "~bootstrap/scss/bootstrap";

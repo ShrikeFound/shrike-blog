@@ -12,9 +12,10 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    views = @post.views + 1
-    @post.update(views: views)
-
+    if !current_user
+      views = @post.views + 1
+      @post.update(views: views)
+    end
 
   end
 

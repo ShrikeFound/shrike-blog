@@ -1,20 +1,15 @@
-<div class="container">
-<h1>Tags</h1>
+<div class="container" style="margin: 0 auto; max-width: max-content;">
+<h1 style="text-align: center;">Categories</h1>
   <% @tags.each do |tag|%>
-    <h3><%= tag.name %></h3>
-  <div class="row">
-
-    <ul>
-      <% tag.posts.each do |post|%>
-        <li>
-        <%= link_to post.title, post_path(post)%>
-        <% if current_user && current_user.admin%>
+    <div class="row" style = "">
+    <%
+      tag_header = "#{tag.name} (#{tag.posts.count})" 
+    %>
+    <h3><%= link_to tag_header, tag_path(tag) %></h3>
+            <% if current_user && current_user.admin%>
           <%= link_to "Delete Tag", tag_path(tag), method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+        </div>
   <% end %>
 
 </div>

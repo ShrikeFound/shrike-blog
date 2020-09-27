@@ -1,5 +1,7 @@
 <div style="width: 100%; max-height: 300px; overflow-y:hidden;">
+  <% if @post.banner.attached? %>
   <%= image_tag(@post.banner, style:'width:100%')%>
+  <% end %>
 </div>
 
 <div class="container" style="margin-top: 2em;">
